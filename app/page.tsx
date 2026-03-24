@@ -25,7 +25,7 @@ export default async function HomePage() {
       <SectionWrapper className="space-y-6 sm:space-y-7">
         <ScrollReveal>
         <section className="rounded-xl bg-ink/40 glass-outline-subtle">
-          <div className="relative min-h-[62vh] sm:min-h-[68vh] text-white overflow-hidden rounded-xl">
+          <div className="relative min-h-[50vh] sm:min-h-[68vh] text-white overflow-hidden rounded-xl">
             {/* London skyline background video - place your video at /public/hero-video.mp4 */}
             <video
               autoPlay
@@ -42,7 +42,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-crimson/40 via-crimson/20 to-ink/75" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(112,14,13,0.35),transparent_45%),radial-gradient(circle_at_78%_75%,rgba(112,14,13,0.22),transparent_40%)]" />
             <div className="absolute inset-0 rounded-xl ring-1 ring-charcoal/20" />
-            <div className="relative py-16 sm:py-20 min-h-[62vh] sm:min-h-[68vh] flex items-center justify-center">
+            <div className="relative py-12 sm:py-20 min-h-[50vh] sm:min-h-[68vh] flex items-center justify-center">
             <div className="text-center max-w-3xl px-4">
               <p className="text-[11px] sm:text-xs tracking-[0.16em] uppercase font-medium text-white/85 mb-4 animate-[fade_500ms_ease-out]">
                 Engineering & Construction Recruitment
