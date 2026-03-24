@@ -51,7 +51,7 @@ export default function Logo({ light = false, withLink = true, className = "", s
   }
 
   return (
-    <Link href="/" className={className} aria-label="PROSITEUK home">
+    <Link href="/" className={`inline-flex items-center ${className}`} aria-label="PROSITEUK home">
       <LogoContent light={light} size={size} />
     </Link>
   );
