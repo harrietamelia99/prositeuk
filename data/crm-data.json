@@ -1,0 +1,77 @@
+{
+  "jobs": [
+    {
+      "id": "job-1",
+      "slug": "site-engineer-london",
+      "title": "Site Engineer",
+      "location": "London, UK",
+      "employmentType": "Permanent",
+      "salary": "£45,000 - £55,000",
+      "description": "We are looking for an experienced Site Engineer to support key infrastructure projects across London. You will coordinate with project teams, ensure quality standards and deliver works safely and on schedule.",
+      "status": "published",
+      "createdAt": "2026-03-24T14:37:53.188Z",
+      "updatedAt": "2026-03-24T14:37:53.188Z"
+    },
+    {
+      "id": "job-2",
+      "slug": "senior-site-engineer-sizewell-c",
+      "title": "Senior Site Engineer (x2) – Sizewell C",
+      "location": "Sizewell C, Suffolk",
+      "employmentType": "Freelance",
+      "salary": "£400+ per day",
+      "description": "We have two exciting opportunities for experienced Senior Site Engineers to join us at Sizewell C, Suffolk — one of the UK's most significant infrastructure projects.\n\nWork will involve concrete batching plant construction and park and ride construction, ideal for engineers who thrive in complex, large-scale environments.\n\nWe pride ourselves on providing quality site engineering services across the UK and are looking for skilled professionals who share that standard.\n\nTo apply or find out more, contact Callam O'Sheen at PROSITEUK.",
+      "status": "published",
+      "createdAt": "2026-03-24T18:00:00.000Z",
+      "updatedAt": "2026-03-24T18:00:00.000Z"
+    },
+    {
+      "id": "job-3",
+      "slug": "setting-out-engineer-national-highways",
+      "title": "Setting Out Engineer – National Highways",
+      "location": "Midlands, UK",
+      "employmentType": "Contract",
+      "salary": "£350 - £420 per day",
+      "description": "PROSITEUK is recruiting an experienced Setting Out Engineer for a National Highways scheme in the Midlands. You will be responsible for all setting out activities on a major roads improvement programme, working closely with the site team to maintain accuracy and programme delivery.\n\nIdeal candidates will have proven experience on highways or civils schemes and hold a valid CSCS card. Long-term contract with immediate start available.",
+      "status": "published",
+      "createdAt": "2026-03-24T18:01:00.000Z",
+      "updatedAt": "2026-03-24T18:01:00.000Z"
+    },
+    {
+      "id": "job-4",
+      "slug": "site-engineer-tfl-london",
+      "title": "Site Engineer – Transport for London",
+      "location": "London, UK",
+      "employmentType": "Contract",
+      "salary": "£320 - £380 per day",
+      "description": "We are seeking a Site Engineer to support ongoing delivery on a Transport for London programme. The role involves coordinating site activities, carrying out setting out and quality assurance checks, and liaising with TfL representatives.\n\nExperience working within TfL or London Underground environments is advantageous. Strong communication skills and the ability to work in a fast-paced, high-compliance setting are essential.",
+      "status": "published",
+      "createdAt": "2026-03-24T18:02:00.000Z",
+      "updatedAt": "2026-03-24T18:02:00.000Z"
+    },
+    {
+      "id": "job-5",
+      "slug": "senior-site-engineer-civils-permanent",
+      "title": "Senior Site Engineer – Civils",
+      "location": "London & South East",
+      "employmentType": "Permanent",
+      "salary": "£55,000 - £65,000",
+      "description": "PROSITEUK is working with a leading tier 2 contractor to recruit a Senior Site Engineer on a permanent basis. You will take ownership of site engineering activities across civil and infrastructure works, mentoring junior engineers and working directly with the project manager to deliver programme milestones.\n\nSuitable candidates will have 5+ years' experience in a site engineering role, ideally within civils or groundworks, and be degree qualified in Civil Engineering or a related discipline.",
+      "status": "published",
+      "createdAt": "2026-03-24T18:03:00.000Z",
+      "updatedAt": "2026-03-24T18:03:00.000Z"
+    },
+    {
+      "id": "job-6",
+      "slug": "groundworker-london",
+      "title": "Groundworker",
+      "location": "London, UK",
+      "employmentType": "Temporary",
+      "salary": "£22 - £26 per hour",
+      "description": "We are recruiting experienced Groundworkers for ongoing projects across London. Works include drainage, foundations, kerbing and general civils activities on a variety of residential and commercial schemes.\n\nApplicants must hold a valid CSCS Blue Card and have demonstrable groundworks experience. Immediate start available with competitive rates and consistent long-term work for the right candidates.",
+      "status": "published",
+      "createdAt": "2026-03-24T18:04:00.000Z",
+      "updatedAt": "2026-03-24T18:04:00.000Z"
+    }
+  ],
+  "applications": []
+}

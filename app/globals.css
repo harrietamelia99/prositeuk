@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Allrounder Monument Medium";
+  src: url("/fonts/AllrounderMonumentTest-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins), Arial, sans-serif;
+}
+
+.logo-wordmark {
+  font-family: "Allrounder Monument Medium", "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.058em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.glass-outline-subtle {
+  border: 1px solid rgba(28, 28, 28, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 0 0 1px rgba(28, 28, 28, 0.1),
+    0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chevronLeftPulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes chevronRightPulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(1px);
+  }
+}
+
+@keyframes wordmarkFade {
+  0%,
+  100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes progressSlide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes loaderIconFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 0 rgba(112, 14, 13, 0));
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(112, 14, 13, 0.45));
+  }
+}
+
+.loader-wordmark-fade {
+  animation: wordmarkFade 1.8s ease-in-out infinite;
+}
+
+.loader-icon-float {
+  animation: loaderIconFloat 1.8s ease-in-out infinite;
+}
+
+.loader-progress {
+  animation: progressSlide 1.3s linear infinite;
+}
