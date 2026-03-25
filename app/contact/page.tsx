@@ -135,12 +135,12 @@ export default function ContactPage() {
                         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 4a2 2 0 100 4 2 2 0 000-4z" />
                       </svg>
                     </a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram" className="h-9 w-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <a href="https://www.instagram.com/_prositeuk/" target="_blank" aria-label="Instagram" className="h-9 w-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm8.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10z" />
                       </svg>
                     </a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" className="h-9 w-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <a href="https://www.facebook.com/profile.php?id=61571225233602" target="_blank" aria-label="Facebook" className="h-9 w-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M15 3h-3a5 5 0 00-5 5v3H4v4h3v6h4v-6h3l1-4h-4V8a1 1 0 011-1h3z" />
                       </svg>

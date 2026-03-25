@@ -139,9 +139,14 @@ export default function JobMap() {
 
         {/* Sidebar */}
         <div className="flex-1 border-l border-white/10 p-4 sm:p-5 flex flex-col gap-2.5">
-          <div className="mb-1">
-            <h3 className="text-white font-semibold text-xs sm:text-sm">Current opportunities</h3>
-            <p className="text-white/40 text-[10px] sm:text-xs mt-0.5">Click a pin to filter</p>
+          <div className="flex items-start justify-between gap-2 mb-1">
+            <div>
+              <h3 className="text-white font-semibold text-xs sm:text-sm">Current opportunities</h3>
+              <p className="text-white/40 text-[10px] sm:text-xs mt-0.5">Click a pin to filter</p>
+            </div>
+            <Link href="/jobs" className="text-[10px] text-white/50 hover:text-white transition-colors shrink-0 mt-0.5">
+              View all →
+            </Link>
           </div>
 
           <div className="flex-1 space-y-2 overflow-y-auto max-h-[320px]">
@@ -190,14 +195,6 @@ export default function JobMap() {
             </button>
           )}
 
-          <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-            <Link
-              href="/jobs"
-              className="text-xs text-white/70 hover:text-white font-medium transition-colors"
-            >
-              View all jobs →
-            </Link>
-          </div>
         </div>
       </div>
     </div>
