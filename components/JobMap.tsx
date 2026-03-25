@@ -149,7 +149,7 @@ export default function JobMap() {
             </Link>
           </div>
 
-          <div className="flex-1 space-y-2 overflow-y-auto max-h-[320px]">
+          <div className="space-y-2">
             {(
               active
                 ? active.jobs.map((j) => ({ ...j, pinLabel: active.label }))
