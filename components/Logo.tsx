@@ -34,7 +34,7 @@ function LogoContent({ light = false, size = "navbar" }: { light?: boolean; size
   return (
     <span className={`inline-flex items-center ${gapClass}`}>
       <LogoMark light={light} size={size} />
-      <span className={`logo-wordmark ${wordmarkClass} leading-none translate-y-[1.5px] ${light ? "text-white" : "text-charcoal"}`}>
+      <span className={`logo-wordmark ${wordmarkClass} leading-none -translate-y-[2px] ${light ? "text-white" : "text-charcoal"}`}>
         PROSITEUK
       </span>
     </span>
