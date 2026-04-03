@@ -161,8 +161,7 @@ export default function ContactPage() {
             If your requirement is urgent, message us directly and we&apos;ll respond as quickly as possible.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button href="https://wa.me/447563707612">Start WhatsApp chat</Button>
-            <Button href="/jobs" variant="outlined">View live jobs</Button>
+            <Button href="/jobs">View live jobs</Button>
           </div>
         </div>
       </section>
