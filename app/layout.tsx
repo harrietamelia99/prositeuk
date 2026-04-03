@@ -14,7 +14,14 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "PROSITEUK | Construction Recruitment",
   description:
-    "PROSITEUK connects skilled site engineering and construction talent with the right businesses across the UK."
+    "PROSITEUK connects skilled site engineering and construction talent with the right businesses across the UK.",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+  },
 };
 
 export default function RootLayout({
