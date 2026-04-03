@@ -125,13 +125,13 @@ export default function EmployersPage() {
                   Trusted by tier 1, 2 and 3 contractors for site engineering-led placements and dependable site workforce support.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                  <span className="inline-flex items-center rounded-md border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
                     Relationship-led delivery
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                  <span className="inline-flex items-center rounded-md border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
                     Positive client feedback
                   </span>
-                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                  <span className="inline-flex items-center rounded-md border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
                     Fast shortlist turnaround
                   </span>
                 </div>
