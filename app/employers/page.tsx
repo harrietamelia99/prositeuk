@@ -129,7 +129,7 @@ export default function EmployersPage() {
                   </svg>
                 </span>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/60 mb-1">Core sectors</p>
-                <p className="text-sm font-medium text-charcoal">Engineering, groundworks, plant ops</p>
+                <p className="text-sm font-medium text-charcoal">Site engineering, groundworks, plant ops</p>
               </div>
               <div className="rounded-lg border border-charcoal/15 bg-white p-4">
                 <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-ink text-white">
@@ -206,13 +206,27 @@ export default function EmployersPage() {
                 <h3 className="text-xl font-semibold">White collar roles</h3>
               </div>
               <p className="text-sm text-charcoal/75 mb-4">
-                Engineering and technical placements with a focus on delivery ownership, quality and programme outcomes.
+                Site engineering and technical placements with a focus on delivery ownership, quality and programme outcomes.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Site engineer</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Senior engineer</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Project engineer</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Setting out engineer</span>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/50 mb-2">Site engineering</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Site engineer</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Senior engineer</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Project engineer</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Setting out engineer</span>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/50 mb-2">Site management</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Sub agent</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Site agent</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Project manager</span>
+                    <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Contracts manager</span>
+                  </div>
+                </div>
               </div>
             </article>
 

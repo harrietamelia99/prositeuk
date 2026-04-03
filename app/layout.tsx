@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "PROSITEUK | Engineering & Construction Recruitment",
+  title: "PROSITEUK | Construction Recruitment",
   description:
     "PROSITEUK connects skilled engineering and construction talent with the right businesses across the UK."
 };

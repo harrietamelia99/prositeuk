@@ -45,7 +45,7 @@ export default async function HomePage() {
             <div className="relative py-12 sm:py-20 min-h-[50vh] sm:min-h-[68vh] flex items-center justify-center">
             <div className="text-center max-w-3xl px-4">
               <p className="text-[11px] sm:text-xs tracking-[0.16em] uppercase font-medium text-white/85 mb-4 animate-[fade_500ms_ease-out]">
-                Engineering & Construction Recruitment
+                Construction Recruitment
               </p>
               <h1 className="text-[1.8rem] sm:text-4xl md:text-5xl font-bold leading-[1.06] mb-7 animate-[fade_650ms_ease-out]">
                 Bringing <span className="text-white">skilled talent</span> and businesses together to create
@@ -140,7 +140,7 @@ export default async function HomePage() {
               </p>
               <p className="text-white/90 mb-7">
                 By truly understanding the needs of each, we connect the right people with the right
-                opportunities across the UK Engineering and Construction sectors.
+                opportunities across the UK site engineering and construction sectors.
               </p>
               <div className="flex items-center justify-center gap-3 flex-wrap">
                 <Button href="/about">About Us</Button>
@@ -180,7 +180,7 @@ export default async function HomePage() {
           <div className="relative z-10 max-w-3xl mx-auto text-center px-6 sm:px-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Register for job alerts</h2>
             <p className="text-sm sm:text-base text-white mb-6 sm:mb-8">
-              Whether you&apos;re actively seeking a new opportunity in either Engineering or Construction,
+              Whether you&apos;re actively seeking a new opportunity in site engineering or construction,
               or keen to be kept informed of roles that match your skills in the near future, register your
               details with us today.
             </p>

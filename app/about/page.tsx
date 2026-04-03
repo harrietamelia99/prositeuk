@@ -62,7 +62,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Core sectors and services</h3>
               <p className="text-sm text-charcoal/75">
-                Engineering recruitment, groundworker recruitment and plant operative recruitment with role-by-role
+                Site engineering recruitment, groundworker recruitment and plant operative recruitment with role-by-role
                 shortlisting based on site requirements.
               </p>
             </article>

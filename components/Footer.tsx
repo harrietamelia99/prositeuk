@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="col-span-2 md:col-span-1 space-y-3 lg:max-w-[18rem]">
               <Logo withLink={false} size="footer" className="w-fit" />
               <p className="text-sm leading-snug max-w-[14rem] text-charcoal/70">
-                Engineering and Construction Recruitment Agency.
+                Construction Recruitment Agency.
               </p>
               <div className="flex items-center gap-1">
                 <Link href="https://linkedin.com" aria-label="LinkedIn" target="_blank">
