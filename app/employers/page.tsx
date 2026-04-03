@@ -158,19 +158,27 @@ export default function EmployersPage() {
             </div>
           </div>
 
-          {/* Bento row 2: three equal stat cards */}
+          {/* Bento row 2: three compact stat cards */}
           <div className="grid gap-3 grid-cols-1 sm:grid-cols-3 mt-3">
-            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Core sectors</p>
-              <p className="text-base font-semibold text-charcoal leading-snug">Site engineering, groundworks, plant ops</p>
+            <div className="rounded-xl border border-charcoal/15 bg-white px-5 py-4 glass-outline-subtle">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-2.5">Core sectors</p>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="rounded-md bg-offwhite border border-charcoal/10 px-2.5 py-1 text-xs font-medium text-charcoal/80">Site engineering</span>
+                <span className="rounded-md bg-offwhite border border-charcoal/10 px-2.5 py-1 text-xs font-medium text-charcoal/80">Groundworks</span>
+                <span className="rounded-md bg-offwhite border border-charcoal/10 px-2.5 py-1 text-xs font-medium text-charcoal/80">Plant ops</span>
+              </div>
             </div>
-            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Most placed</p>
-              <p className="text-base font-semibold text-charcoal leading-snug">Site and senior engineers</p>
+            <div className="rounded-xl border border-charcoal/15 bg-white px-5 py-4 glass-outline-subtle">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-2.5">Most placed</p>
+              <p className="text-sm font-semibold text-charcoal leading-snug">Site and senior engineers</p>
+              <p className="text-xs text-charcoal/40 mt-1">Highest volume role type</p>
             </div>
-            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Replacements</p>
-              <p className="text-base font-semibold text-charcoal leading-snug">0 required to date</p>
+            <div className="rounded-xl border border-charcoal/15 bg-white px-5 py-4 glass-outline-subtle flex items-center gap-4">
+              <p className="text-5xl font-bold text-charcoal tabular-nums leading-none">0</p>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 leading-snug">Replacements</p>
+                <p className="text-xs text-charcoal/50 mt-0.5">required to date</p>
+              </div>
             </div>
           </div>
         </div>
@@ -234,11 +242,14 @@ export default function EmployersPage() {
               <p className="text-sm text-charcoal/75 mb-4">
                 Site workforce recruitment to maintain productivity, safety standards and day-to-day programme momentum.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Groundworker</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Plant operative</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Civils operative</span>
-                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Site support crew</span>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/50 mb-2">Site workforce</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Groundworker</span>
+                  <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Plant operative</span>
+                  <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Civils operative</span>
+                  <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Site support crew</span>
+                </div>
               </div>
             </article>
           </div>

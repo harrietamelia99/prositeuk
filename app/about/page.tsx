@@ -53,14 +53,31 @@ export default function AboutPage() {
             and site-based teams, with a strong track record in high-impact infrastructure environments.
           </p>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 mb-6">
-            <article className="rounded-lg border border-charcoal/15 bg-offwhite p-5 glass-outline-subtle">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-crimson to-ink text-white flex items-center justify-center mb-3">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
-                  <path d="M12 3v18M4 12h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                </svg>
+          {/* Full-width differentiator card with standout projects folded in */}
+          <article className="rounded-lg border border-charcoal/15 bg-gradient-to-br from-[#efefef] via-white to-white p-6 sm:p-8 glass-outline-subtle mb-4">
+            <h3 className="text-xl font-semibold mb-3">What differentiates PROSITEUK</h3>
+            <p className="text-charcoal/80 mb-3 max-w-3xl">
+              Our edge is practical industry knowledge and long-standing relationships built through direct project
+              delivery and trusted referrals.
+            </p>
+            <p className="text-charcoal/80 mb-6 max-w-3xl">
+              Placements have generated consistently positive feedback with no replacement requirements to date,
+              and the business has grown organically through repeat clients and word of mouth.
+            </p>
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/50 mb-2">Standout projects</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Sizewell C</span>
+                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">Transport for London</span>
+                <span className="rounded-md border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">National Highways</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Core sectors and services</h3>
+            </div>
+          </article>
+
+          {/* Three info cards in a clean 3-column row */}
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="rounded-lg border border-charcoal/15 bg-offwhite p-5 glass-outline-subtle">
+              <h3 className="text-sm font-semibold mb-2">Core sectors and services</h3>
               <p className="text-sm text-charcoal/75">
                 Site engineering recruitment, groundworker recruitment and plant operative recruitment with role-by-role
                 shortlisting based on site requirements.
@@ -68,13 +85,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-lg border border-charcoal/15 bg-offwhite p-5 glass-outline-subtle">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-crimson to-ink text-white flex items-center justify-center mb-3">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
-                  <path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                  <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Most frequent placements</h3>
+              <h3 className="text-sm font-semibold mb-2">Most frequent placements</h3>
               <p className="text-sm text-charcoal/75">
                 Our highest-volume placements are site engineers and senior engineers, while we continue expanding
                 delivery in groundworker and plant operative hiring.
@@ -82,49 +93,11 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-lg border border-charcoal/15 bg-offwhite p-5 glass-outline-subtle">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-crimson to-ink text-white flex items-center justify-center mb-3">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
-                  <path d="M4 17.5V8.5l8-4 8 4v9l-8 4-8-4Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-                  <path d="m8.5 12 2 2 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Ideal client profile</h3>
+              <h3 className="text-sm font-semibold mb-2">Ideal client profile</h3>
               <p className="text-sm text-charcoal/75">
                 We primarily partner with tier 1, tier 2 and tier 3 main contractors, plus growth-focused SMEs
                 delivering civil, infrastructure and complex build programmes.
               </p>
-            </article>
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-2">
-            <article className="rounded-lg border border-charcoal/15 bg-gradient-to-br from-[#efefef] via-white to-white p-6 glass-outline-subtle">
-              <h3 className="text-xl font-semibold mb-3">What differentiates PROSITEUK</h3>
-              <p className="text-charcoal/80 mb-3">
-                Our edge is practical industry knowledge and long-standing relationships built through direct project
-                delivery and trusted referrals.
-              </p>
-              <p className="text-charcoal/80">
-                Placements have generated consistently positive feedback with no replacement requirements to date,
-                and the business has grown organically through repeat clients and word of mouth.
-              </p>
-            </article>
-
-            <article className="rounded-lg border border-charcoal/15 bg-gradient-to-br from-[#efefef] via-white to-white p-6 glass-outline-subtle">
-              <h3 className="text-xl font-semibold mb-3">Standout projects and programmes</h3>
-              <ul className="space-y-2 text-charcoal/80">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-crimson shrink-0" />
-                  <span>Sizewell C - one of the UK&apos;s largest infrastructure projects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-crimson shrink-0" />
-                  <span>Multiple Transport for London projects and supply needs</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-crimson shrink-0" />
-                  <span>National Highways schemes across major routes</span>
-                </li>
-              </ul>
             </article>
           </div>
         </div>
