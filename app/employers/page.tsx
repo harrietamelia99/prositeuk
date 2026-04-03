@@ -114,73 +114,63 @@ export default function EmployersPage() {
 
       <section className="bg-gradient-to-br from-[#efefef] via-white to-white p-8 sm:p-10 rounded-xl glass-outline-subtle">
         <div>
-          <div className="rounded-xl border border-charcoal/15 bg-gradient-to-br from-offwhite to-white p-6 sm:p-8 glass-outline-subtle">
-            <p className="uppercase tracking-[0.16em] text-xs text-charcoal/60 mb-3">Delivery strengths</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Specialist recruitment across project-critical roles</h2>
-            <p className="text-charcoal/75 max-w-3xl mb-6">
-              Trusted by tier 1, 2 and 3 contractors for engineering-led placements and dependable site workforce support.
-            </p>
+          <p className="uppercase tracking-[0.16em] text-xs text-charcoal/60 mb-3">Delivery strengths</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8">Specialist recruitment across project-critical roles</h2>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-lg border border-charcoal/15 bg-white p-4">
-                <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-ink text-white">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
-                    <path d="M7 18v-7m5 7V6m5 12v-4M4 21h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                </span>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/60 mb-1">Core sectors</p>
-                <p className="text-sm font-medium text-charcoal">Site engineering, groundworks, plant ops</p>
+          {/* Bento row 1: featured description card + dark project context card */}
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-3">
+            <div className="sm:col-span-2 rounded-xl border border-charcoal/15 bg-white p-6 sm:p-8 glass-outline-subtle flex flex-col justify-between gap-6">
+              <div>
+                <p className="text-charcoal/75 leading-relaxed max-w-xl">
+                  Trusted by tier 1, 2 and 3 contractors for engineering-led placements and dependable site workforce support.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                    Relationship-led delivery
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                    Positive client feedback
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
+                    Fast shortlist turnaround
+                  </span>
+                </div>
               </div>
-              <div className="rounded-lg border border-charcoal/15 bg-white p-4">
-                <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-ink text-white">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
-                    <path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                    <rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                  </svg>
-                </span>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/60 mb-1">Most placed</p>
-                <p className="text-sm font-medium text-charcoal">Site and senior engineers</p>
-              </div>
-              <div className="rounded-lg border border-charcoal/15 bg-white p-4">
-                <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-ink text-white">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
-                    <path d="M6 12.5 10 16l8-8" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/60 mb-1">Replacements</p>
-                <p className="text-sm font-medium text-charcoal">0 required to date</p>
-              </div>
-              <div className="rounded-lg border border-charcoal/15 bg-white p-4">
-                <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-ink text-white">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
-                    <path d="M5 18h14M7 15l3-3 2 2 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal/60 mb-1">Project context</p>
-                <p className="text-sm font-medium text-charcoal">Sizewell C, TfL, National Highways</p>
+              <div className="flex flex-wrap gap-3 pt-2 border-t border-charcoal/10">
+                <Button href="/contact">Discuss your hiring needs</Button>
+                <a
+                  href="/jobs"
+                  className="inline-flex items-center rounded-md border border-crimson/30 bg-crimson/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-crimson transition-colors hover:bg-crimson/15"
+                >
+                  View live roles
+                </a>
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">
-                Relationship-led delivery
-              </span>
-              <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">
-                Positive client feedback
-              </span>
-              <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-white px-3 py-1.5 text-xs font-medium text-charcoal/80">
-                Fast shortlist turnaround
-              </span>
+            <div className="rounded-xl bg-ink p-6 sm:p-8 glass-outline-subtle flex flex-col justify-between">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-white/40 mb-5">Project context</p>
+              <div className="space-y-2 flex-1">
+                <p className="text-xl font-semibold text-white leading-tight">Sizewell C</p>
+                <p className="text-xl font-semibold text-white leading-tight">TfL</p>
+                <p className="text-xl font-semibold text-white leading-tight">National Highways</p>
+              </div>
+              <p className="text-xs text-white/35 mt-6 leading-snug">Projects we have placed on</p>
             </div>
+          </div>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Button href="/contact">Discuss your hiring needs</Button>
-              <a
-                href="/jobs"
-                className="inline-flex items-center rounded-md border border-crimson/30 bg-crimson/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-crimson transition-colors hover:bg-crimson/15"
-              >
-                View live roles
-              </a>
+          {/* Bento row 2: three equal stat cards */}
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-3 mt-3">
+            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Core sectors</p>
+              <p className="text-base font-semibold text-charcoal leading-snug">Site engineering, groundworks, plant ops</p>
+            </div>
+            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Most placed</p>
+              <p className="text-base font-semibold text-charcoal leading-snug">Site and senior engineers</p>
+            </div>
+            <div className="rounded-xl border border-charcoal/15 bg-white p-5 sm:p-6 glass-outline-subtle">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-charcoal/45 mb-3">Replacements</p>
+              <p className="text-base font-semibold text-charcoal leading-snug">0 required to date</p>
             </div>
           </div>
         </div>
