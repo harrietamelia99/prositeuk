@@ -11,7 +11,7 @@ export default function AboutPage() {
           <p className="uppercase tracking-[0.18em] text-sm text-white/70 mb-4">About PROSITEUK</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Built on industry insight and trusted partnerships</h1>
           <p className="max-w-3xl text-white/85">
-            We are a specialist engineering and construction recruitment agency helping businesses secure
+            We are a specialist site engineering and construction recruitment agency helping businesses secure
             highly skilled talent while supporting candidates in finding the right opportunities.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function AboutPage() {
           <p className="uppercase tracking-[0.16em] text-xs text-charcoal/60 mb-3">Recruitment focus</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">Blue and white collar talent, placed with precision</h2>
           <p className="text-charcoal/75 max-w-4xl mb-8">
-            PROSITEUK supports engineering and construction projects with specialist hiring across technical
+            PROSITEUK supports site engineering and construction projects with specialist hiring across technical
             and site-based teams, with a strong track record in high-impact infrastructure environments.
           </p>
 
@@ -135,14 +135,14 @@ export default function AboutPage() {
           <div className="lg:col-span-2 rounded-xl bg-offwhite border border-charcoal/15 p-7 sm:p-8 glass-outline-subtle">
             <p className="uppercase tracking-[0.16em] text-xs text-charcoal/60 mb-3">Leadership spotlight</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Why our director, Callam, is uniquely placed to recruit engineering talent
+              Why our director, Callam, is uniquely placed to recruit site engineering talent
             </h2>
             <p className="text-charcoal/80 mb-4">
               As our director, Callam&apos;s background in site engineering gives PROSITEUK first-hand insight into what
               successful delivery looks like on site and what employers genuinely need from technical hires.
             </p>
             <p className="text-charcoal/80 mb-4">
-              Having worked in live engineering environments, he understands project pace, technical standards,
+              Having worked in live site engineering environments, he understands project pace, technical standards,
               and the practical challenges teams face every day. That perspective helps us evaluate candidates
               beyond job titles and keywords.
             </p>
@@ -153,7 +153,7 @@ export default function AboutPage() {
 
             <div className="rounded-lg bg-white border border-charcoal/15 p-5 glass-outline-subtle">
               <p className="text-charcoal/85 italic">
-                &ldquo;Great recruitment in engineering starts with understanding the real demands of site
+                &ldquo;Great recruitment in site engineering starts with understanding the real demands of site
                 delivery, not just what is written on a CV.&rdquo;
               </p>
               <p className="text-xs uppercase tracking-[0.14em] text-charcoal/60 mt-3">Callam O&apos;Sheen • Director</p>
@@ -167,7 +167,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Connect with Callam</h3>
               <p className="text-sm text-charcoal/75 mb-5">
-                View Callam&apos;s profile to learn more about his engineering background and recruitment focus.
+                View Callam&apos;s profile to learn more about his site engineering background and recruitment focus.
               </p>
               <div className="space-y-2 text-sm text-charcoal/80">
                 <p>9+ years in civil engineering</p>

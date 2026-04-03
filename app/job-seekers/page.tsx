@@ -15,7 +15,7 @@ type Benefit = {
 const benefits: Benefit[] = [
   {
     title: "Exclusive opportunities",
-    description: "Access to high-quality engineering and construction vacancies across the UK.",
+    description: "Access to high-quality site engineering and construction vacancies across the UK.",
     icon: "briefcase"
   },
   {

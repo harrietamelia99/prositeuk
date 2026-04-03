@@ -14,7 +14,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "PROSITEUK | Construction Recruitment",
   description:
-    "PROSITEUK connects skilled engineering and construction talent with the right businesses across the UK."
+    "PROSITEUK connects skilled site engineering and construction talent with the right businesses across the UK."
 };
 
 export default function RootLayout({

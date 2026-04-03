@@ -17,7 +17,7 @@ export default async function JobsPage({
       <section className="bg-ink text-white p-8 sm:p-10 rounded-xl glass-outline-subtle">
         <p className="uppercase tracking-[0.18em] text-sm text-white/70 mb-4">Jobs</p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Current opportunities</h1>
-        <p className="max-w-3xl text-white/85">Browse open roles across engineering and construction and apply directly with your CV.</p>
+        <p className="max-w-3xl text-white/85">Browse open roles across site engineering and construction and apply directly with your CV.</p>
       </section>
 
       <section>

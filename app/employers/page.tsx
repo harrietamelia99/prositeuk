@@ -11,7 +11,7 @@ type Service = {
 const services: Service[] = [
   {
     title: "Pre-qualified talent",
-    description: "Quick access to vetted engineering and construction professionals.",
+    description: "Quick access to vetted site engineering and construction professionals.",
     icon: "network"
   },
   {
@@ -63,7 +63,7 @@ export default function EmployersPage() {
           <p className="uppercase tracking-[0.18em] text-sm text-white/70 mb-4">Employers</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Reliable recruitment support for growing teams</h1>
           <p className="max-w-3xl text-white/85">
-            PROSITEUK helps employers secure dependable talent for engineering and construction projects of
+            PROSITEUK helps employers secure dependable talent for site engineering and construction projects of
             every scale.
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function EmployersPage() {
             <div className="sm:col-span-2 rounded-xl border border-charcoal/15 bg-white p-6 sm:p-8 glass-outline-subtle flex flex-col justify-between gap-6">
               <div>
                 <p className="text-charcoal/75 leading-relaxed max-w-xl">
-                  Trusted by tier 1, 2 and 3 contractors for engineering-led placements and dependable site workforce support.
+                  Trusted by tier 1, 2 and 3 contractors for site engineering-led placements and dependable site workforce support.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   <span className="inline-flex items-center rounded-full border border-charcoal/15 bg-offwhite px-3 py-1.5 text-xs font-medium text-charcoal/80">
@@ -250,7 +250,7 @@ export default function EmployersPage() {
           <p className="uppercase tracking-[0.16em] text-xs text-white/75 mb-3">Build your team</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">Need project-ready talent quickly?</h2>
           <p className="text-white/90 max-w-3xl mb-6">
-            We provide fast, reliable support for engineering and site workforce hiring across major UK projects.
+            We provide fast, reliable support for site engineering and workforce hiring across major UK projects.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button href="/contact">Discuss your hiring needs</Button>
