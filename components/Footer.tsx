@@ -40,13 +40,13 @@ export default function Footer() {
                 Construction Recruitment Agency.
               </p>
               <div className="flex items-center gap-1">
-                <Link href="https://linkedin.com" aria-label="LinkedIn" target="_blank">
+                <Link href="https://www.linkedin.com/company/prositeuk/" aria-label="LinkedIn" target="_blank">
                   <SocialIcon path="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 4a2 2 0 100 4 2 2 0 000-4z" />
                 </Link>
                 <Link href="https://www.instagram.com/_prositeuk/" aria-label="Instagram" target="_blank">
                   <SocialIcon path="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm8.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10z" />
                 </Link>
-                <Link href="https://www.facebook.com/profile.php?id=61571225233602" aria-label="Facebook" target="_blank">
+                <Link href="https://www.facebook.com/people/Prositeuk/61571225233602/" aria-label="Facebook" target="_blank">
                   <SocialIcon path="M15 3h-3a5 5 0 00-5 5v3H4v4h3v6h4v-6h3l1-4h-4V8a1 1 0 011-1h3z" />
                 </Link>
               </div>
