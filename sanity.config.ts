@@ -5,6 +5,7 @@ import { schemaTypes } from "./sanity/schemaTypes";
 export default defineConfig({
   name: "prositeuk",
   title: "PROSITEUK",
+  basePath: "/studio",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   plugins: [structureTool()],
