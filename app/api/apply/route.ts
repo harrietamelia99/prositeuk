@@ -1,11 +1,8 @@
-import { promises as fs } from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
-import { createApplication } from "@/lib/crm-store";
+import { Resend } from "resend";
+import { writeClient } from "@/sanity/lib/client";
 
-function sanitizeFileName(name: string) {
-  return name.replace(/[^a-zA-Z0-9._-]/g, "-");
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -16,37 +13,78 @@ export async function POST(request: Request) {
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
     const message = String(formData.get("message") || "").trim();
-    const cv = formData.get("cv");
+    const cvLink = String(formData.get("cvLink") || "").trim();
 
-    if (!jobId || !jobTitle || !candidateName || !email || !phone || !message || !(cv instanceof File)) {
+    if (!jobId || !jobTitle || !candidateName || !email || !phone || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const extension = path.extname(cv.name || "").toLowerCase();
-    const allowed = [".pdf", ".doc", ".docx"];
-    if (!allowed.includes(extension)) {
-      return NextResponse.json({ error: "CV must be a PDF, DOC or DOCX file" }, { status: 400 });
-    }
+    const appliedAt = new Date().toISOString();
 
-    const uploadDir = path.join(process.cwd(), "public", "uploads", "cv");
-    await fs.mkdir(uploadDir, { recursive: true });
-    const fileName = `${Date.now()}-${sanitizeFileName(cv.name)}`;
-    const fullPath = path.join(uploadDir, fileName);
-    const bytes = await cv.arrayBuffer();
-    await fs.writeFile(fullPath, Buffer.from(bytes));
-
-    await createApplication({
+    await writeClient.create({
+      _type: "application",
       jobId,
       jobTitle,
       candidateName,
       email,
       phone,
       message,
-      cvUrl: `/uploads/cv/${fileName}`
+      cvLink: cvLink || undefined,
+      status: "new",
+      appliedAt,
+    });
+
+    await resend.emails.send({
+      from: "PROSITEUK Applications <onboarding@resend.dev>",
+      to: "Info@prositeuk.com",
+      subject: `New application: ${candidateName} for ${jobTitle}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
+          <div style="background: #1a1a1a; padding: 24px 32px;">
+            <p style="color: white; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 4px;">PROSITEUK</p>
+            <p style="color: #ccc; font-size: 13px; margin: 0;">New job application received</p>
+          </div>
+          <div style="padding: 32px; border: 1px solid #e5e5e5; border-top: none;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; width: 140px; color: #666; font-size: 13px;">Role applied for</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-weight: 600; font-size: 13px;">${jobTitle}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">Name</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;">${candidateName}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">Email</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="mailto:${email}" style="color: #700e0d;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">Phone</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="tel:${phone}" style="color: #700e0d;">${phone}</a></td>
+              </tr>
+              ${cvLink ? `<tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">CV link</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="${cvLink}" style="color: #700e0d;">${cvLink}</a></td>
+              </tr>` : ""}
+              <tr>
+                <td style="padding: 10px 0; color: #666; font-size: 13px; vertical-align: top;">Message</td>
+                <td style="padding: 10px 0; font-size: 13px; white-space: pre-wrap;">${message}</td>
+              </tr>
+            </table>
+            <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
+              <a href="https://prositeuk.sanity.studio" style="display: inline-block; background: #1a1a1a; color: white; text-decoration: none; padding: 10px 20px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">View in Sanity →</a>
+            </div>
+          </div>
+          <div style="padding: 16px 32px; background: #f9f9f9; font-size: 11px; color: #999;">
+            Sent automatically via PROSITEUK website · ${new Date(appliedAt).toLocaleString("en-GB", { timeZone: "Europe/London" })}
+          </div>
+        </div>
+      `,
     });
 
     return NextResponse.redirect(new URL(`/jobs?applied=1`, request.url), { status: 303 });
-  } catch {
+  } catch (err) {
+    console.error("Apply error:", err);
     return NextResponse.json({ error: "Could not submit application" }, { status: 500 });
   }
 }
