@@ -5,6 +5,8 @@ import JobMetaIcons from "@/components/JobMetaIcons";
 import PageShell from "@/components/PageShell";
 import { getJobBySlug } from "@/lib/crm-store";
 
+export const dynamic = "force-dynamic";
+
 export default async function JobDetailPage({ params }: { params: { slug: string } }) {
   const job = await getJobBySlug(params.slug);
   if (!job || job.status !== "published") notFound();

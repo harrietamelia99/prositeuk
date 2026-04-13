@@ -5,6 +5,8 @@ import JobMap from "@/components/JobMap";
 import PageShell from "@/components/PageShell";
 import { getPublishedJobs } from "@/lib/crm-store";
 
+export const dynamic = "force-dynamic";
+
 export default async function JobsPage({
   searchParams
 }: {

@@ -6,6 +6,8 @@ import JobMetaIcons from "@/components/JobMetaIcons";
 import PageShell from "@/components/PageShell";
 import { getPublishedJobs } from "@/lib/crm-store";
 
+export const dynamic = "force-dynamic";
+
 type Benefit = {
   title: string;
   description: string;
