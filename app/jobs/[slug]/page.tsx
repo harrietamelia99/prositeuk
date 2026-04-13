@@ -61,10 +61,10 @@ export default async function JobDetailPage({ params }: { params: { slug: string
               required
             />
             <input
-              type="url"
-              name="cvLink"
-              placeholder="CV link (Google Drive, Dropbox, LinkedIn etc.) — optional"
-              className="min-w-0 w-full rounded-md border border-charcoal/20 px-4 py-3"
+              type="file"
+              name="cv"
+              accept=".pdf,.doc,.docx"
+              className="min-w-0 w-full max-w-full rounded-md border border-charcoal/20 px-4 py-3 file:mr-3 file:rounded file:border-0 file:bg-charcoal/10 file:px-3 file:py-1 file:text-xs file:font-semibold"
             />
 
             <textarea

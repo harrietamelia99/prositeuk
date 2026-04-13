@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { put } from "@vercel/blob";
 import { writeClient } from "@/sanity/lib/client";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -13,10 +14,24 @@ export async function POST(request: Request) {
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
     const message = String(formData.get("message") || "").trim();
-    const cvLink = String(formData.get("cvLink") || "").trim();
+    const cv = formData.get("cv");
 
     if (!jobId || !jobTitle || !candidateName || !email || !phone || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    let cvUrl: string | undefined;
+
+    if (cv instanceof File && cv.size > 0) {
+      const extension = cv.name.split(".").pop()?.toLowerCase();
+      const allowed = ["pdf", "doc", "docx"];
+      if (!extension || !allowed.includes(extension)) {
+        return NextResponse.json({ error: "CV must be a PDF, DOC or DOCX file" }, { status: 400 });
+      }
+      const blob = await put(`cvs/${Date.now()}-${candidateName.replace(/\s+/g, "-")}.${extension}`, cv, {
+        access: "public",
+      });
+      cvUrl = blob.url;
     }
 
     const appliedAt = new Date().toISOString();
@@ -29,7 +44,7 @@ export async function POST(request: Request) {
       email,
       phone,
       message,
-      cvLink: cvLink || undefined,
+      cvLink: cvUrl,
       status: "new",
       appliedAt,
     });
@@ -62,9 +77,9 @@ export async function POST(request: Request) {
                 <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">Phone</td>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="tel:${phone}" style="color: #700e0d;">${phone}</a></td>
               </tr>
-              ${cvLink ? `<tr>
-                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">CV link</td>
-                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="${cvLink}" style="color: #700e0d;">${cvLink}</a></td>
+              ${cvUrl ? `<tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-size: 13px;">CV</td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px;"><a href="${cvUrl}" style="color: #700e0d;">Download CV</a></td>
               </tr>` : ""}
               <tr>
                 <td style="padding: 10px 0; color: #666; font-size: 13px; vertical-align: top;">Message</td>
@@ -72,7 +87,7 @@ export async function POST(request: Request) {
               </tr>
             </table>
             <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
-              <a href="https://prositeuk.sanity.studio" style="display: inline-block; background: #1a1a1a; color: white; text-decoration: none; padding: 10px 20px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">View in Sanity →</a>
+              <a href="https://prositeuk.com/studio" style="display: inline-block; background: #1a1a1a; color: white; text-decoration: none; padding: 10px 20px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">View in Sanity →</a>
             </div>
           </div>
           <div style="padding: 16px 32px; background: #f9f9f9; font-size: 11px; color: #999;">
