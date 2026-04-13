@@ -1,27 +1,28 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { Application, ApplicationStatus, CrmData, Job, JobStatus } from "./crm-types";
+import { client } from "@/sanity/lib/client";
+import { allPublishedJobsQuery, jobBySlugQuery } from "@/sanity/lib/queries";
+import { Application, ApplicationStatus, CrmData, Job } from "./crm-types";
+
+// ─── Jobs — sourced from Sanity ──────────────────────────────────────────────
+
+export async function getPublishedJobs(): Promise<Job[]> {
+  return client.fetch(allPublishedJobsQuery, {}, { next: { revalidate: 60 } });
+}
+
+export async function getAllJobs(): Promise<Job[]> {
+  return getPublishedJobs();
+}
+
+export async function getJobBySlug(slug: string): Promise<Job | null> {
+  return client.fetch(jobBySlugQuery, { slug }, { next: { revalidate: 60 } });
+}
+
+// ─── Applications — kept in local JSON (Vercel writable via /tmp workaround) ─
 
 const DATA_FILE = path.join(process.cwd(), "data", "crm-data.json");
 
-const initialData: CrmData = {
-  jobs: [
-    {
-      id: "job-1",
-      slug: "site-engineer-london",
-      title: "Site Engineer",
-      location: "London, UK",
-      employmentType: "Permanent",
-      salary: "£45,000 - £55,000",
-      description:
-        "We are looking for an experienced Site Engineer to support key infrastructure projects across London. You will coordinate with project teams, ensure quality standards and deliver works safely and on schedule.",
-      status: "published",
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    }
-  ],
-  applications: []
-};
+const initialData: CrmData = { jobs: [], applications: [] };
 
 async function ensureDataFile() {
   try {
@@ -40,72 +41,6 @@ async function readData(): Promise<CrmData> {
 
 async function writeData(data: CrmData) {
   await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), "utf8");
-}
-
-export async function getAllJobs() {
-  const data = await readData();
-  return data.jobs.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-}
-
-export async function getPublishedJobs() {
-  const jobs = await getAllJobs();
-  return jobs.filter((job) => job.status === "published");
-}
-
-export async function getJobBySlug(slug: string) {
-  const jobs = await getAllJobs();
-  return jobs.find((job) => job.slug === slug);
-}
-
-export async function getAllApplications() {
-  const data = await readData();
-  return data.applications.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-}
-
-export async function createJob(input: {
-  title: string;
-  location: string;
-  employmentType: string;
-  salary: string;
-  description: string;
-  status: JobStatus;
-}) {
-  const data = await readData();
-  const now = new Date().toISOString();
-  const slugBase = input.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  let slug = slugBase || "job";
-  let counter = 1;
-
-  while (data.jobs.some((job) => job.slug === slug)) {
-    counter += 1;
-    slug = `${slugBase}-${counter}`;
-  }
-
-  const job: Job = {
-    id: crypto.randomUUID(),
-    slug,
-    title: input.title,
-    location: input.location,
-    employmentType: input.employmentType,
-    salary: input.salary,
-    description: input.description,
-    status: input.status,
-    createdAt: now,
-    updatedAt: now
-  };
-
-  data.jobs.push(job);
-  await writeData(data);
-  return job;
-}
-
-export async function updateJobStatus(jobId: string, status: JobStatus) {
-  const data = await readData();
-  const idx = data.jobs.findIndex((job) => job.id === jobId);
-  if (idx < 0) return;
-  data.jobs[idx].status = status;
-  data.jobs[idx].updatedAt = new Date().toISOString();
-  await writeData(data);
 }
 
 export async function createApplication(input: {
