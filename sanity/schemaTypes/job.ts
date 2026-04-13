@@ -9,13 +9,20 @@ export const jobType = defineType({
       name: "title",
       title: "Job Title",
       type: "string",
+      description: "The slug (URL) will be generated automatically from this title.",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "URL slug (auto-generated)",
       type: "slug",
-      options: { source: "title", maxLength: 96 },
+      options: {
+        source: "title",
+        maxLength: 96,
+        isUnique: () => true,
+      },
+      readOnly: true,
+      description: "This is set automatically — no need to edit it.",
       validation: (rule) => rule.required(),
     }),
     defineField({
