@@ -43,6 +43,11 @@ async function writeData(data: CrmData) {
   await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), "utf8");
 }
 
+export async function getAllApplications() {
+  const data = await readData();
+  return data.applications.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
 export async function createApplication(input: {
   jobId: string;
   jobTitle: string;
