@@ -17,6 +17,7 @@ export type Job = {
   salary: string;
   description: string;
   status: JobStatus;
+  region?: string;
   createdAt: string;
   updatedAt: string;
 };

@@ -23,7 +23,7 @@ export default async function JobsPage({
       </section>
 
       <section>
-        <JobMap />
+        <JobMap jobs={jobs} />
       </section>
 
       <section className="bg-gradient-to-br from-[#efefef] via-white to-white py-12 sm:py-14 rounded-xl glass-outline-subtle">

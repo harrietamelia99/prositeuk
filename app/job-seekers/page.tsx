@@ -168,7 +168,7 @@ export default async function JobSeekersPage() {
           <h2 className="text-white text-xl font-semibold">Where we&apos;re hiring</h2>
           <p className="text-white/50 text-sm mt-1">Click a pin to see roles by location.</p>
         </div>
-        <JobMap />
+        <JobMap jobs={jobs} />
       </section>
 
       <section className="rounded-xl overflow-hidden glass-outline-subtle">

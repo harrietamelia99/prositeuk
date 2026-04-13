@@ -8,50 +8,62 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
+import { Job } from "@/lib/crm-types";
 
 const GEO_URL = "/countries-50m.json";
 
-const JOB_PINS = [
-  {
-    id: "london",
-    label: "London & South East",
-    coordinates: [-0.12, 51.5] as [number, number],
-    jobs: [
-      { title: "Site Engineer", slug: "site-engineer-london" },
-      { title: "Site Engineer – Transport for London", slug: "site-engineer-tfl-london" },
-      { title: "Senior Site Engineer – Civils", slug: "senior-site-engineer-civils-permanent" },
-      { title: "Groundworker", slug: "groundworker-london" },
-    ],
-  },
-  {
-    id: "suffolk",
-    label: "Sizewell C, Suffolk",
-    coordinates: [1.62, 52.2] as [number, number],
-    jobs: [
-      { title: "Senior Site Engineer (x2) – Sizewell C", slug: "senior-site-engineer-sizewell-c" },
-    ],
-  },
-  {
-    id: "midlands",
-    label: "Midlands",
-    coordinates: [-1.89, 52.48] as [number, number],
-    jobs: [
-      { title: "Setting Out Engineer – National Highways", slug: "setting-out-engineer-national-highways" },
-    ],
-  },
-];
+const REGION_MAP: Record<string, { label: string; coordinates: [number, number] }> = {
+  "london-south-east": { label: "London & South East", coordinates: [-0.12, 51.5] },
+  "suffolk-east-anglia": { label: "Suffolk / East Anglia", coordinates: [1.62, 52.2] },
+  "midlands": { label: "Midlands", coordinates: [-1.89, 52.48] },
+  "north-west": { label: "North West", coordinates: [-2.24, 53.48] },
+  "yorkshire": { label: "Yorkshire", coordinates: [-1.55, 53.8] },
+  "south-west": { label: "South West", coordinates: [-2.59, 51.45] },
+  "wales": { label: "Wales", coordinates: [-3.18, 51.48] },
+  "scotland": { label: "Scotland", coordinates: [-3.19, 55.95] },
+  "north-east": { label: "North East", coordinates: [-1.62, 54.98] },
+  "remote": { label: "Remote / UK-Wide", coordinates: [-1.5, 52.5] },
+};
 
-export default function JobMap() {
+type Pin = {
+  id: string;
+  label: string;
+  coordinates: [number, number];
+  jobs: { title: string; slug: string }[];
+};
+
+function buildPins(jobs: Job[]): Pin[] {
+  const grouped: Record<string, Pin> = {};
+  for (const job of jobs) {
+    if (!job.region || !REGION_MAP[job.region]) continue;
+    if (!grouped[job.region]) {
+      grouped[job.region] = {
+        id: job.region,
+        label: REGION_MAP[job.region].label,
+        coordinates: REGION_MAP[job.region].coordinates,
+        jobs: [],
+      };
+    }
+    grouped[job.region].jobs.push({ title: job.title, slug: job.slug });
+  }
+  return Object.values(grouped);
+}
+
+export default function JobMap({ jobs }: { jobs: Job[] }) {
+  const pins = buildPins(jobs);
   const [activePin, setActivePin] = useState<string | null>(null);
-  const active = JOB_PINS.find((p) => p.id === activePin);
+  const active = pins.find((p) => p.id === activePin);
+
+  const visibleJobs = active
+    ? active.jobs.map((j) => ({ ...j, pinLabel: active.label }))
+    : pins.flatMap((p) => p.jobs.map((j) => ({ ...j, pinLabel: p.label })));
 
   return (
     <div className="relative w-full rounded-xl overflow-hidden bg-ink glass-outline-subtle" data-dark>
       <div className="absolute inset-0 bg-gradient-to-br from-crimson/10 via-transparent to-transparent pointer-events-none" />
 
       <div className="relative flex flex-row items-stretch">
-
-        {/* Map column — portrait strip */}
+        {/* Map column */}
         <div className="relative shrink-0 w-[160px] sm:w-[210px] md:w-[240px] lg:w-[280px] overflow-hidden">
           <ComposableMap
             projection="geoMercator"
@@ -60,7 +72,6 @@ export default function JobMap() {
             height={480}
             style={{ width: "100%", height: "auto", display: "block" }}
           >
-            {/* All countries for geographic context */}
             <Geographies geography={GEO_URL}>
               {({ geographies }) =>
                 geographies.map((geo) => {
@@ -76,14 +87,8 @@ export default function JobMap() {
                           strokeWidth: isUK ? 0.6 : 0.3,
                           outline: "none",
                         },
-                        hover: {
-                          fill: isUK ? "#303030" : "#181818",
-                          outline: "none",
-                        },
-                        pressed: {
-                          fill: isUK ? "#303030" : "#181818",
-                          outline: "none",
-                        },
+                        hover: { fill: isUK ? "#303030" : "#181818", outline: "none" },
+                        pressed: { fill: isUK ? "#303030" : "#181818", outline: "none" },
                       }}
                     />
                   );
@@ -91,7 +96,7 @@ export default function JobMap() {
               }
             </Geographies>
 
-            {JOB_PINS.map((pin) => (
+            {pins.map((pin) => (
               <Marker
                 key={pin.id}
                 coordinates={pin.coordinates}
@@ -99,11 +104,7 @@ export default function JobMap() {
               >
                 <circle
                   r={activePin === pin.id ? 13 : 9}
-                  fill={
-                    activePin === pin.id
-                      ? "rgba(112,14,13,0.3)"
-                      : "rgba(112,14,13,0.15)"
-                  }
+                  fill={activePin === pin.id ? "rgba(112,14,13,0.3)" : "rgba(112,14,13,0.15)"}
                   style={{ transition: "r 0.2s ease, fill 0.2s ease" }}
                 />
                 <circle
@@ -130,7 +131,6 @@ export default function JobMap() {
             ))}
           </ComposableMap>
 
-          {/* Legend */}
           <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-ink/90 border border-white/10 rounded-md px-2.5 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
             <span className="text-[9px] text-white/50 uppercase tracking-widest">Live roles</span>
@@ -150,11 +150,10 @@ export default function JobMap() {
           </div>
 
           <div className="space-y-2">
-            {(
-              active
-                ? active.jobs.map((j) => ({ ...j, pinLabel: active.label }))
-                : JOB_PINS.flatMap((p) => p.jobs.map((j) => ({ ...j, pinLabel: p.label })))
-            ).map((job) => (
+            {visibleJobs.length === 0 && (
+              <p className="text-white/40 text-xs">No live roles right now — check back soon.</p>
+            )}
+            {visibleJobs.map((job) => (
               <Link
                 key={job.slug}
                 href={`/jobs/${job.slug}`}
@@ -194,7 +193,6 @@ export default function JobMap() {
               Clear filter
             </button>
           )}
-
         </div>
       </div>
     </div>

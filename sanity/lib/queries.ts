@@ -10,6 +10,7 @@ export const allPublishedJobsQuery = groq`
     salary,
     description,
     status,
+    region,
     "createdAt": _createdAt,
     "updatedAt": _updatedAt
   }
@@ -25,6 +26,7 @@ export const jobBySlugQuery = groq`
     salary,
     description,
     status,
+    region,
     "createdAt": _createdAt,
     "updatedAt": _updatedAt
   }

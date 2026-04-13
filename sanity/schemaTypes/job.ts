@@ -46,6 +46,26 @@ export const jobType = defineType({
       type: "string",
     }),
     defineField({
+      name: "region",
+      title: "Map Region",
+      type: "string",
+      description: "Used to place this job on the map. Pick the nearest region.",
+      options: {
+        list: [
+          { title: "London & South East", value: "london-south-east" },
+          { title: "Suffolk / East Anglia", value: "suffolk-east-anglia" },
+          { title: "Midlands", value: "midlands" },
+          { title: "North West", value: "north-west" },
+          { title: "Yorkshire", value: "yorkshire" },
+          { title: "South West", value: "south-west" },
+          { title: "Wales", value: "wales" },
+          { title: "Scotland", value: "scotland" },
+          { title: "North East", value: "north-east" },
+          { title: "Remote / UK-Wide", value: "remote" },
+        ],
+      },
+    }),
+    defineField({
       name: "description",
       title: "Job Description",
       type: "text",
