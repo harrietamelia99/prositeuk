@@ -64,7 +64,7 @@ export const jobType = defineType({
         ],
         layout: "radio",
       },
-      initialValue: "draft",
+      initialValue: "published",
       validation: (rule) => rule.required(),
     }),
   ],
