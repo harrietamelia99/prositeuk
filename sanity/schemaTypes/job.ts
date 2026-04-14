@@ -14,15 +14,15 @@ export const jobType = defineType({
     }),
     defineField({
       name: "slug",
-      title: "URL slug (auto-generated)",
+      title: "URL slug",
       type: "slug",
       options: {
         source: "title",
         maxLength: 96,
-        isUnique: () => true,
+        slugify: (input: string) =>
+          input.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 96),
       },
-      readOnly: true,
-      description: "This is set automatically — no need to edit it.",
+      description: "Click 'Generate' after entering the title — this is set automatically.",
       validation: (rule) => rule.required(),
     }),
     defineField({
