@@ -3,11 +3,23 @@ import path from "path";
 import { client } from "@/sanity/lib/client";
 import { allPublishedJobsQuery, jobBySlugQuery } from "@/sanity/lib/queries";
 import { Application, ApplicationStatus, CrmData, Job } from "./crm-types";
+import { geocodeLocation } from "./geocode";
 
 // ─── Jobs — sourced from Sanity ──────────────────────────────────────────────
 
+async function attachCoordinates(jobs: Job[]): Promise<Job[]> {
+  return Promise.all(
+    jobs.map(async (job) => {
+      if (!job.location) return job;
+      const coordinates = await geocodeLocation(job.location);
+      return coordinates ? { ...job, coordinates } : job;
+    })
+  );
+}
+
 export async function getPublishedJobs(): Promise<Job[]> {
-  return client.fetch(allPublishedJobsQuery, {}, { next: { revalidate: 60 } });
+  const jobs = await client.fetch<Job[]>(allPublishedJobsQuery, {}, { next: { revalidate: 60 } });
+  return attachCoordinates(jobs);
 }
 
 export async function getAllJobs(): Promise<Job[]> {
@@ -15,7 +27,10 @@ export async function getAllJobs(): Promise<Job[]> {
 }
 
 export async function getJobBySlug(slug: string): Promise<Job | null> {
-  return client.fetch(jobBySlugQuery, { slug }, { next: { revalidate: 60 } });
+  const job = await client.fetch<Job | null>(jobBySlugQuery, { slug }, { next: { revalidate: 60 } });
+  if (!job) return null;
+  const coordinates = job.location ? await geocodeLocation(job.location) : null;
+  return coordinates ? { ...job, coordinates } : job;
 }
 
 // ─── Applications — kept in local JSON (Vercel writable via /tmp workaround) ─

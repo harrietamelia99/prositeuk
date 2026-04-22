@@ -18,6 +18,7 @@ export type Job = {
   description: string;
   status: JobStatus;
   region?: string;
+  coordinates?: [number, number];
   createdAt: string;
   updatedAt: string;
 };

@@ -35,16 +35,29 @@ type Pin = {
 function buildPins(jobs: Job[]): Pin[] {
   const grouped: Record<string, Pin> = {};
   for (const job of jobs) {
-    if (!job.region || !REGION_MAP[job.region]) continue;
-    if (!grouped[job.region]) {
-      grouped[job.region] = {
-        id: job.region,
-        label: REGION_MAP[job.region].label,
-        coordinates: REGION_MAP[job.region].coordinates,
-        jobs: [],
-      };
+    let coords: [number, number] | undefined;
+    let label: string;
+    let key: string;
+
+    if (job.coordinates) {
+      // Group by rounded coordinates (~10km precision) to cluster nearby jobs
+      const rLng = Math.round(job.coordinates[0] * 10) / 10;
+      const rLat = Math.round(job.coordinates[1] * 10) / 10;
+      key = `${rLng},${rLat}`;
+      coords = job.coordinates;
+      label = job.location;
+    } else if (job.region && REGION_MAP[job.region]) {
+      key = job.region;
+      coords = REGION_MAP[job.region].coordinates;
+      label = REGION_MAP[job.region].label;
+    } else {
+      continue;
     }
-    grouped[job.region].jobs.push({ title: job.title, slug: job.slug });
+
+    if (!grouped[key]) {
+      grouped[key] = { id: key, label, coordinates: coords, jobs: [] };
+    }
+    grouped[key].jobs.push({ title: job.title, slug: job.slug });
   }
   return Object.values(grouped);
 }
