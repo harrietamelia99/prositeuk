@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     });
 
     await resend.emails.send({
-      from: "PROSITEUK Applications <onboarding@resend.dev>",
+      from: "PROSITEUK Applications <no-reply@prositeuk.com>",
       to: "Info@prositeuk.com",
       subject: `New application: ${candidateName} for ${jobTitle}`,
       html: `
