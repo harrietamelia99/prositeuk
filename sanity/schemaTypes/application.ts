@@ -30,6 +30,14 @@ export const applicationType = defineType({
       initialValue: "new",
     }),
     defineField({ name: "notes", title: "Recruiter notes", type: "text" }),
+    defineField({
+      name: "rejectionMessage",
+      title: "Rejection message to candidate",
+      type: "text",
+      rows: 5,
+      description: "This will be emailed to the candidate when you save with status set to Rejected.",
+      hidden: ({ document }) => document?.status !== "rejected",
+    }),
     defineField({ name: "appliedAt", title: "Applied at", type: "datetime", readOnly: true }),
   ],
   preview: {
