@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Button from "@/components/Button";
 import JobMetaIcons from "@/components/JobMetaIcons";
 import PageShell from "@/components/PageShell";
+import ApplyForm from "@/components/ApplyForm";
 import { getJobBySlug } from "@/lib/crm-store";
 
 export const dynamic = "force-dynamic";
@@ -32,51 +33,7 @@ export default async function JobDetailPage({ params }: { params: { slug: string
 
         <div className="min-w-0 rounded-xl bg-white border border-charcoal/15 p-8 shadow-sm glass-outline-subtle">
           <h2 className="text-2xl font-bold mb-4">Apply for this role</h2>
-          <form
-            action="/api/apply"
-            method="post"
-            encType="multipart/form-data"
-            className="grid min-w-0 md:grid-cols-2 gap-4"
-          >
-            <input type="hidden" name="jobId" value={job.id} />
-            <input type="hidden" name="jobTitle" value={job.title} />
-
-            <input
-              name="candidateName"
-              placeholder="Full name"
-              className="min-w-0 w-full rounded-md border border-charcoal/20 px-4 py-3"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              className="min-w-0 w-full rounded-md border border-charcoal/20 px-4 py-3"
-              required
-            />
-            <input
-              name="phone"
-              placeholder="Phone number"
-              className="min-w-0 w-full rounded-md border border-charcoal/20 px-4 py-3"
-              required
-            />
-            <input
-              type="file"
-              name="cv"
-              accept=".pdf,.doc,.docx"
-              className="min-w-0 w-full max-w-full rounded-md border border-charcoal/20 px-4 py-3 file:mr-3 file:rounded file:border-0 file:bg-charcoal/10 file:px-3 file:py-1 file:text-xs file:font-semibold"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Tell us about your experience"
-              className="min-w-0 w-full rounded-md border border-charcoal/20 px-4 py-3 md:col-span-2 min-h-[140px]"
-              required
-            />
-            <button type="submit" className="w-fit rounded-md bg-crimson px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-white">
-              Submit Application
-            </button>
-          </form>
+          <ApplyForm jobId={job.id} jobTitle={job.title} />
         </div>
       </div>
       </section>
