@@ -107,13 +107,13 @@ export default function Footer() {
             </div>
 
           </div>
-        </div>
 
-        {/* Accreditation logos */}
-        <div className="mt-6 pt-6 border-t border-charcoal/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-          <Image src="/logo-onceforall.png" alt="Once For All Health & Safety" width={120} height={48} className="h-8 w-auto object-contain" />
-          <Image src="/logo-cas.png" alt="Common Assessment Standard" width={120} height={48} className="h-8 w-auto object-contain" />
-          <Image src="/logo-constructionline.png" alt="Constructionline Gold Member" width={120} height={48} className="h-8 w-auto object-contain" />
+          {/* Accreditation logos */}
+          <div className="mt-6 pt-6 border-t border-charcoal/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            <Image src="/logo-onceforall.png" alt="Once For All Health & Safety" width={120} height={48} className="h-8 w-auto object-contain" />
+            <Image src="/logo-cas.png" alt="Common Assessment Standard" width={120} height={48} className="h-8 w-auto object-contain" />
+            <Image src="/logo-constructionline.png" alt="Constructionline Gold Member" width={120} height={48} className="h-8 w-auto object-contain" />
+          </div>
         </div>
       </SectionWrapper>
       <div className="border-t border-white/15 mt-6">
