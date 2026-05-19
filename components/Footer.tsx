@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Logo from "./Logo";
 import SectionWrapper from "./SectionWrapper";
@@ -108,6 +109,15 @@ export default function Footer() {
           </div>
         </div>
       </SectionWrapper>
+      {/* Accreditation logos */}
+      <SectionWrapper className="pt-8 pb-2">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+          <Image src="/logo-onceforall.png" alt="Once For All Health & Safety" width={140} height={56} className="h-10 w-auto object-contain" />
+          <Image src="/logo-cas.png" alt="Common Assessment Standard" width={140} height={56} className="h-10 w-auto object-contain" />
+          <Image src="/logo-constructionline.png" alt="Constructionline Gold Member" width={140} height={56} className="h-10 w-auto object-contain" />
+        </div>
+      </SectionWrapper>
+
       <div className="border-t border-white/15 mt-6">
         <SectionWrapper className="py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1">
