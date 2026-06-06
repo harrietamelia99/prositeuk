@@ -7,6 +7,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import TiltCard from "@/components/TiltCard";
 import CountUp from "@/components/CountUp";
+import JobAlertForm from "@/components/JobAlertForm";
 import { getPublishedJobs } from "@/lib/crm-store";
 
 function IconTile({ children }: { children: React.ReactNode }) {
@@ -184,19 +185,7 @@ export default async function HomePage() {
               or keen to be kept informed of roles that match your skills in the near future, register your
               details with us today.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto px-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full rounded-sm px-4 py-3 text-charcoal focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="rounded-sm bg-white text-ink px-6 py-3 text-xs font-semibold uppercase tracking-wide hover:bg-offwhite transition-colors"
-              >
-                Submit
-              </button>
-            </form>
+            <JobAlertForm />
           </div>
         </section>
         </ScrollReveal>
