@@ -12,7 +12,7 @@ const exploreLinks = [
 
 const connectLinks = [
   { href: "/contact", label: "Enquire" },
-  { href: "https://instagram.com", label: "Instagram" },
+  { href: "https://www.instagram.com/_prositeuk/", label: "Instagram" },
   { href: "https://linkedin.com", label: "LinkedIn" },
   { href: "https://www.facebook.com/profile.php?id=61571225233602", label: "Facebook" }
 ];
