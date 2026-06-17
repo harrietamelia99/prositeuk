@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
             <section className="space-y-3">
               <h2 className="text-lg font-semibold text-charcoal">1. Who we are</h2>
-              <p>PROSITEUK is a construction recruitment agency operating in the United Kingdom. Our registered address is 255–259 Commercial Road, 2nd Floor, Whitechapel, London E1 2BT.</p>
+              <p>PROSITEUK is a construction recruitment agency operating in the United Kingdom. Our registered address is Office Suite F10, Newcom Business Centre, 125 Poplar High Street, London E14 0AE.</p>
               <p>We are committed to protecting your personal data and complying with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
               <p>For any privacy-related queries, contact us at <a href="mailto:info@prositeuk.com" className="text-crimson underline underline-offset-2">info@prositeuk.com</a>.</p>
             </section>

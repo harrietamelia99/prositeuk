@@ -87,7 +87,7 @@ export default function Footer() {
                 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-crimson mt-0.5 shrink-0">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
                 </svg>
-                <span className="text-charcoal/70 leading-snug">255–259 Commercial Road, 2nd Floor, Whitechapel, London E1 2BT</span>
+                <span className="text-charcoal/70 leading-snug">Office Suite F10, Newcom Business Centre, 125 Poplar High Street, London E14 0AE</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-crimson shrink-0">
