@@ -60,12 +60,12 @@ export default async function HomePage() {
               </div>
 
               <div className="mt-8 mx-auto max-w-xl w-full animate-[fade_950ms_ease-out] grid grid-cols-2 gap-3 px-2">
-                <a href="/about#recruitment-focus" className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left hover:bg-white/15 hover:border-white/30 transition-colors">
-                  <p className="text-[10px] uppercase tracking-widest text-white/50 font-semibold mb-1">Blue Collar</p>
+                <a href="/about#recruitment-focus" className="rounded-lg bg-crimson border border-crimson px-4 py-3 text-left hover:brightness-110 transition-all">
+                  <p className="text-[10px] uppercase tracking-widest text-white/70 font-semibold mb-1">Blue Collar</p>
                   <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Groundworkers, labourers &amp; plant operators</p>
                 </a>
-                <a href="/about#recruitment-focus" className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left hover:bg-white/15 hover:border-white/30 transition-colors">
-                  <p className="text-[10px] uppercase tracking-widest text-white/50 font-semibold mb-1">White Collar</p>
+                <a href="/about#recruitment-focus" className="rounded-lg bg-crimson border border-crimson px-4 py-3 text-left hover:brightness-110 transition-all">
+                  <p className="text-[10px] uppercase tracking-widest text-white/70 font-semibold mb-1">White Collar</p>
                   <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Site engineers, surveyors &amp; project managers</p>
                 </a>
               </div>
