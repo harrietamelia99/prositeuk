@@ -61,7 +61,7 @@ export default async function HomePage() {
 
               <div className="mt-8 mx-auto max-w-xl w-full animate-[fade_950ms_ease-out] grid grid-cols-2 gap-3 px-2">
                 <div className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left">
-                  <p className="text-[10px] uppercase tracking-widest text-[#7ab3e0] font-semibold mb-1">Blue Collar</p>
+                  <p className="text-[10px] uppercase tracking-widest text-white/50 font-semibold mb-1">Blue Collar</p>
                   <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Groundworkers, labourers &amp; plant operators</p>
                 </div>
                 <div className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left">
