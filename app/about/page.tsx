@@ -44,7 +44,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-[#efefef] via-white to-white p-8 sm:p-10 rounded-xl glass-outline-subtle">
+      <section id="recruitment-focus" className="bg-gradient-to-br from-[#efefef] via-white to-white p-8 sm:p-10 rounded-xl glass-outline-subtle">
         <div>
           <p className="uppercase tracking-[0.16em] text-xs text-charcoal/60 mb-3">Recruitment focus</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">Blue and white collar talent, placed with precision</h2>
