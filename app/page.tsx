@@ -59,11 +59,14 @@ export default async function HomePage() {
                 </Button>
               </div>
 
-              <div className="mt-8 mx-auto max-w-2xl rounded-lg border border-charcoal/20 bg-white/5 backdrop-blur-sm px-5 py-3 animate-[fade_950ms_ease-out] glass-outline-subtle">
-                <div className="grid grid-cols-3 gap-2 text-center">
-                  <p className="text-[11px] sm:text-sm text-white/85 leading-snug"><span className="font-semibold text-white block">UK-wide</span> placements</p>
-                  <p className="text-[11px] sm:text-sm text-white/85 leading-snug"><span className="font-semibold text-white block">Fast</span> turnaround</p>
-                  <p className="text-[11px] sm:text-sm text-white/85 leading-snug"><span className="font-semibold text-white block">Trusted</span> partner</p>
+              <div className="mt-8 mx-auto max-w-2xl animate-[fade_950ms_ease-out] flex flex-wrap justify-center gap-3">
+                <div className="flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5">
+                  <span className="h-2 w-2 rounded-full bg-[#4A90D9] shrink-0" />
+                  <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">Blue Collar</span>
+                </div>
+                <div className="flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5">
+                  <span className="h-2 w-2 rounded-full bg-white shrink-0" />
+                  <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">White Collar</span>
                 </div>
               </div>
             </div>
