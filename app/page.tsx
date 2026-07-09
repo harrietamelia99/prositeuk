@@ -66,7 +66,7 @@ export default async function HomePage() {
                 </a>
                 <a href="/about#recruitment-focus" className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left hover:bg-white/15 hover:border-white/30 transition-colors">
                   <p className="inline-block text-[10px] uppercase tracking-widest text-white font-semibold bg-crimson rounded px-2 py-0.5 mb-2">White Collar</p>
-                  <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Site engineers, surveyors &amp; project managers</p>
+                  <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Site engineers, site &amp; project management</p>
                 </a>
               </div>
             </div>
