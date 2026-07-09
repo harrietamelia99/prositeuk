@@ -59,14 +59,14 @@ export default async function HomePage() {
                 </Button>
               </div>
 
-              <div className="mt-8 mx-auto max-w-2xl animate-[fade_950ms_ease-out] flex flex-wrap justify-center gap-3">
-                <div className="flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5">
-                  <span className="h-2 w-2 rounded-full bg-[#4A90D9] shrink-0" />
-                  <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">Blue Collar</span>
+              <div className="mt-8 mx-auto max-w-xl w-full animate-[fade_950ms_ease-out] grid grid-cols-2 gap-3 px-2">
+                <div className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left">
+                  <p className="text-[10px] uppercase tracking-widest text-[#7ab3e0] font-semibold mb-1">Blue Collar</p>
+                  <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Groundworkers, labourers &amp; plant operators</p>
                 </div>
-                <div className="flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-2.5">
-                  <span className="h-2 w-2 rounded-full bg-white shrink-0" />
-                  <span className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">White Collar</span>
+                <div className="rounded-lg border border-white/15 bg-white/8 backdrop-blur-sm px-4 py-3 text-left">
+                  <p className="text-[10px] uppercase tracking-widest text-white/50 font-semibold mb-1">White Collar</p>
+                  <p className="text-white font-semibold text-xs sm:text-sm leading-snug">Site engineers, surveyors &amp; project managers</p>
                 </div>
               </div>
             </div>
