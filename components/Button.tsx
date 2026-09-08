@@ -9,6 +9,7 @@ type ButtonProps = {
   className?: string;
   type?: "button" | "submit";
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 const baseStyles =
@@ -26,9 +27,10 @@ export default function Button({
   icon,
   className = "",
   type = "button",
-  onClick
+  onClick,
+  disabled,
 }: ButtonProps) {
-  const styles = `${baseStyles} ${variantStyles[variant]} ${className}`.trim();
+  const styles = `${baseStyles} ${variantStyles[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`.trim();
 
   if (href) {
     return (
@@ -40,7 +42,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={styles}>
+    <button type={type} onClick={onClick} disabled={disabled} className={styles}>
       {icon}
       {children}
     </button>
