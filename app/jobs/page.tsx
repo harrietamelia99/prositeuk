@@ -66,14 +66,14 @@ export default async function JobsPage({
       </div>
       </section>
 
-      <section className="rounded-xl overflow-hidden glass-outline-subtle">
-        <div className="bg-gradient-to-br from-ink via-charcoal to-ink text-white p-8 sm:p-10">
-          <p className="uppercase tracking-[0.16em] text-xs text-white/60 mb-3">Job alerts</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3">Nothing right for you yet?</h2>
-          <p className="text-white/80 max-w-2xl mb-8">
+      <section className="bg-gradient-to-br from-[#efefef] via-white to-white py-12 sm:py-14 rounded-xl glass-outline-subtle">
+        <div className="px-5 sm:px-7">
+          <p className="uppercase tracking-[0.16em] text-xs text-charcoal/50 mb-3">Job alerts</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Nothing right for you yet?</h2>
+          <p className="text-charcoal/70 max-w-2xl mb-8">
             Register below and we&apos;ll contact you as soon as a role matching your skills and preferences becomes available.
           </p>
-          <JobAlertForm />
+          <JobAlertForm variant="light" />
         </div>
       </section>
 
