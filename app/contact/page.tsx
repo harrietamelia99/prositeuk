@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import PageShell from "@/components/PageShell";
+import JobAlertForm from "@/components/JobAlertForm";
 
 export default function ContactPage() {
   return (
@@ -150,6 +151,17 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-xl overflow-hidden glass-outline-subtle">
+        <div className="bg-gradient-to-br from-ink via-charcoal to-ink text-white p-8 sm:p-10">
+          <p className="uppercase tracking-[0.16em] text-xs text-white/60 mb-3">Job alerts</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">Looking for work?</h2>
+          <p className="text-white/80 max-w-2xl mb-8">
+            Register below and we&apos;ll contact you as soon as a role matching your skills and preferences becomes available.
+          </p>
+          <JobAlertForm />
         </div>
       </section>
 
