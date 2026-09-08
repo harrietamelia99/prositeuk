@@ -66,6 +66,28 @@ export default defineConfig({
                       .child(S.documentList().title("All Applications").filter('_type == "application"').defaultOrdering([{ field: "appliedAt", direction: "desc" }])),
                   ])
               ),
+            S.divider(),
+            S.listItem()
+              .title("Job Alert Subscribers")
+              .child(
+                S.list()
+                  .title("Job Alert Subscribers")
+                  .items([
+                    S.listItem()
+                      .title("🔔 Active Subscribers")
+                      .child(S.documentList().title("Active Subscribers").filter('_type == "jobAlertSubscriber" && active == true').defaultOrdering([{ field: "subscribedAt", direction: "desc" }])),
+                    S.listItem()
+                      .title("🔵 Blue Collar")
+                      .child(S.documentList().title("Blue Collar").filter('_type == "jobAlertSubscriber" && active == true && (collarPreference == "blue" || collarPreference == "both")').defaultOrdering([{ field: "subscribedAt", direction: "desc" }])),
+                    S.listItem()
+                      .title("⚪️ White Collar")
+                      .child(S.documentList().title("White Collar").filter('_type == "jobAlertSubscriber" && active == true && (collarPreference == "white" || collarPreference == "both")').defaultOrdering([{ field: "subscribedAt", direction: "desc" }])),
+                    S.divider(),
+                    S.listItem()
+                      .title("All Subscribers")
+                      .child(S.documentList().title("All Subscribers").filter('_type == "jobAlertSubscriber"').defaultOrdering([{ field: "subscribedAt", direction: "desc" }])),
+                  ])
+              ),
           ]),
     }),
   ],
