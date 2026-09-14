@@ -59,7 +59,7 @@ export default async function JobsPage({
                 salary={job.salary}
                 employmentType={job.employmentType}
               />
-              <p className="text-charcoal/85 mt-4">{job.description}</p>
+              <p className="text-charcoal/85 mt-4 whitespace-pre-wrap">{job.description}</p>
             </article>
           ))}
         </div>

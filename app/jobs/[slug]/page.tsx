@@ -28,7 +28,7 @@ export default async function JobDetailPage({ params }: { params: { slug: string
             salary={job.salary}
             employmentType={job.employmentType}
           />
-          <p className="text-charcoal/85 mt-5">{job.description}</p>
+          <p className="text-charcoal/85 mt-5 whitespace-pre-wrap">{job.description}</p>
         </div>
 
         <div className="min-w-0 rounded-xl bg-white border border-charcoal/15 p-8 shadow-sm glass-outline-subtle">
