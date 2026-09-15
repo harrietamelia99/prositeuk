@@ -92,7 +92,7 @@ export async function POST(request: Request) {
             <a href="https://prositeuk.com/jobs" style="display: inline-block; background: #700e0d; color: white; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em;">View live jobs</a>
           </div>
           <div style="padding: 16px 32px; background: #f9f9f9; font-size: 11px; color: #999;">
-            If you'd like to unsubscribe, reply to this email and we'll remove you from our list. PROSITEUK, Office Suite F10, Newcom Business Centre, 125 Poplar High Street, London E14 0AE.
+            If you'd like to unsubscribe, reply to this email and we'll remove you from our list. PROSITEUK, 18 High Street, Lydd, Romney Marsh TN29 9AJ.
           </div>
         </div>
       `,
