@@ -31,6 +31,21 @@ export const reviewType = defineType({
       type: "string",
     }),
     defineField({
+      name: "rating",
+      title: "Star rating",
+      type: "number",
+      options: {
+        list: [
+          { title: "★★★★★ (5)", value: 5 },
+          { title: "★★★★☆ (4)", value: 4 },
+          { title: "★★★☆☆ (3)", value: 3 },
+          { title: "★★☆☆☆ (2)", value: 2 },
+          { title: "★☆☆☆☆ (1)", value: 1 },
+        ],
+      },
+      validation: (rule) => rule.required().min(1).max(5).integer(),
+    }),
+    defineField({
       name: "review",
       title: "Review",
       type: "text",
@@ -58,10 +73,11 @@ export const reviewType = defineType({
     }),
   ],
   preview: {
-    select: { title: "firstName", subtitle: "review", type: "reviewerType", canPublish: "canPublish" },
-    prepare({ title, subtitle, type, canPublish }) {
+    select: { title: "firstName", subtitle: "review", type: "reviewerType", canPublish: "canPublish", rating: "rating" },
+    prepare({ title, subtitle, type, canPublish, rating }) {
       const label = type === "client" ? "Client" : type === "candidate" ? "Candidate" : "Placement";
-      return { title: `${title} (${label})${canPublish ? "" : " · private"}`, subtitle };
+      const stars = rating ? `${"★".repeat(rating)}${"☆".repeat(5 - rating)} ` : "";
+      return { title: `${stars}${title} (${label})${canPublish ? "" : " · private"}`, subtitle };
     },
   },
   orderings: [

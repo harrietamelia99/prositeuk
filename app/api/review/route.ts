@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     const reviewerType = String(body.reviewerType || "");
     const company = String(body.company || "").trim().slice(0, 120);
     const review = String(body.review || "").trim().slice(0, 3000);
+    const rating = Number(body.rating);
     const canPublish = body.canPublish === true;
 
     if (!(await verifyTurnstile(String(body.turnstileToken || "")))) {
@@ -48,6 +49,9 @@ export async function POST(request: Request) {
     if (!typeLabel[reviewerType]) {
       return NextResponse.json({ error: "Please choose client, candidate or worker on placement" }, { status: 400 });
     }
+    if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+      return NextResponse.json({ error: "Please choose a star rating" }, { status: 400 });
+    }
     if (review.length < 10) {
       return NextResponse.json({ error: "Please write a short review" }, { status: 400 });
     }
@@ -57,6 +61,7 @@ export async function POST(request: Request) {
       firstName,
       reviewerType,
       company: company || undefined,
+      rating,
       review,
       canPublish,
       approved: false,
@@ -64,13 +69,14 @@ export async function POST(request: Request) {
     });
 
     const label = typeLabel[reviewerType];
+    const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
     const safeName = escapeHtml(firstName);
     const safeReview = escapeHtml(review).replace(/\n/g, "<br />");
 
     await resend.emails.send({
       from: "PROSITEUK Website <no-reply@prositeuk.com>",
       to: "Info@prositeuk.com",
-      subject: `New review from ${firstName} (${label})`,
+      subject: `New ${rating}-star review from ${firstName} (${label})`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
           <div style="background: #1a1a1a; padding: 24px 32px;">
@@ -81,6 +87,7 @@ export async function POST(request: Request) {
             <table style="width:100%; border-collapse: collapse; font-size: 14px; margin-bottom: 20px;">
               <tr><td style="padding: 8px 0; color: #666; width: 140px;">First name</td><td style="padding: 8px 0; font-weight: 600;">${safeName}</td></tr>
               <tr><td style="padding: 8px 0; color: #666;">Type</td><td style="padding: 8px 0;">${label}</td></tr>
+              <tr><td style="padding: 8px 0; color: #666;">Rating</td><td style="padding: 8px 0; color: #700e0d; font-size: 18px; letter-spacing: 2px;">${stars} <span style="color:#666; font-size: 13px; letter-spacing: 0;">${rating}/5</span></td></tr>
               ${company ? `<tr><td style="padding: 8px 0; color: #666;">Company or project</td><td style="padding: 8px 0;">${escapeHtml(company)}</td></tr>` : ""}
               <tr><td style="padding: 8px 0; color: #666;">Can we share it?</td><td style="padding: 8px 0; font-weight: 600; color: ${canPublish ? "#1a7f37" : "#700e0d"};">${canPublish ? "Yes" : "No, keep it private"}</td></tr>
             </table>

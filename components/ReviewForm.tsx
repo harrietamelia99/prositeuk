@@ -22,6 +22,8 @@ export default function ReviewForm({ initialName = "", initialType = "" }: Revie
   const [reviewerType, setReviewerType] = useState<ReviewerType>(initialType);
   const [company, setCompany] = useState("");
   const [review, setReview] = useState("");
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
   const [canPublish, setCanPublish] = useState(true);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -35,7 +37,7 @@ export default function ReviewForm({ initialName = "", initialType = "" }: Revie
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, reviewerType, company, review, canPublish, turnstileToken }),
+        body: JSON.stringify({ firstName, reviewerType, company, rating, review, canPublish, turnstileToken }),
       });
       if (res.ok) {
         setStatus("success");
@@ -118,6 +120,42 @@ export default function ReviewForm({ initialName = "", initialType = "" }: Revie
         </div>
       )}
 
+      <div className="flex flex-col gap-2">
+        <span id="rating-label" className={labelCls}>Your rating *</span>
+        <div
+          role="radiogroup"
+          aria-labelledby="rating-label"
+          className="flex items-center gap-1"
+          onMouseLeave={() => setHoverRating(0)}
+        >
+          {[1, 2, 3, 4, 5].map((star) => {
+            const filled = star <= (hoverRating || rating);
+            return (
+              <button
+                key={star}
+                type="button"
+                role="radio"
+                aria-checked={rating === star}
+                aria-label={`${star} out of 5 stars`}
+                onClick={() => setRating(star)}
+                onMouseEnter={() => setHoverRating(star)}
+                className="p-1 rounded-md transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/40"
+              >
+                <svg viewBox="0 0 24 24" className="h-9 w-9" aria-hidden="true">
+                  <path
+                    d="M12 2.75l2.83 5.73 6.32.92-4.57 4.46 1.08 6.3L12 17.18l-5.66 2.98 1.08-6.3-4.57-4.46 6.32-.92L12 2.75z"
+                    className={filled ? "fill-crimson stroke-crimson" : "fill-transparent stroke-charcoal/30"}
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            );
+          })}
+          {rating > 0 && <span className="ml-2 text-sm text-charcoal/60">{rating} out of 5</span>}
+        </div>
+      </div>
+
       <div className="flex flex-col gap-1.5">
         <label htmlFor="review" className={labelCls}>Your review *</label>
         <textarea
@@ -148,7 +186,7 @@ export default function ReviewForm({ initialName = "", initialType = "" }: Revie
       <div>
         <Button
           type="submit"
-          disabled={status === "loading" || !reviewerType || !turnstileToken}
+          disabled={status === "loading" || !reviewerType || !rating || !turnstileToken}
         >
           {status === "loading" ? "Sending…" : "Send my review"}
         </Button>
